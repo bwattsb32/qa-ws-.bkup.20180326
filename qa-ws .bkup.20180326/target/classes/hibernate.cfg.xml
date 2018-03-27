@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@140.188.65.79:1521:orcl</property>
+		<property name="hibernate.connection.username">clogic_user</property>
+		<property name="hibernate.connection.password">JanuarY_2018</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.connection.release_mode">auto</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="hibernate.connection.autoReconnect">true</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.timeout">300</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.default_schema">CLOGIC</property>
+		
+		<mapping resource="com.ngc.CLQA.entities.QauiDocuments.hbm.xml" />
+		<mapping resource="com.ngc.CLQA.entities.QauiSections.hbm.xml" />
+		<mapping resource="com.ngc.CLQA.entities.QauiEditLog.hbm.xml" />
+
+	</session-factory>
+</hibernate-configuration>

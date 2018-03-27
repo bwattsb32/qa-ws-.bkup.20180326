@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="ClsClauses" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="CLS_CLAUSES">
+        <id name="clauseId" type="int">
+            <column name="CLAUSE_ID" precision="7" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="ClsParts" embed-xml="true" fetch="select" insert="true" name="clsParts" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="PART_ID" not-null="true" precision="7" scale="0"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="clauseNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CLAUSE_NUMBER" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="clauseIndicator" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="CLAUSE_INDICATOR" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="alternateIndicator" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="ALTERNATE_INDICATOR" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="alternateNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="ALTERNATE_NUMBER"/>
+        </property>
+        <property generated="never" lazy="false" name="clauseTitle" optimistic-lock="true" type="string" unique="false">
+            <column length="1000" name="CLAUSE_TITLE" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="effectiveDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="EFFECTIVE_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="effectiveEndDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="EFFECTIVE_END_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="fullTextIndicator" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="FULL_TEXT_INDICATOR" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="ibrIndicator" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="IBR_INDICATOR" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fillInIndicator" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="FILL_IN_INDICATOR" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fillInDetails" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="FILL_IN_DETAILS"/>
+        </property>
+        <property generated="never" lazy="false" name="mandatoryIndicator" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="MANDATORY_INDICATOR" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="deviationIndicator" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="DEVIATION_INDICATOR" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="deviationNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="22" name="DEVIATION_NUMBER"/>
+        </property>
+        <property generated="never" lazy="false" name="deviationStartDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="DEVIATION_START_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="deviationEndDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="DEVIATION_END_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="ucfSection" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="UCF_SECTION"/>
+        </property>
+        <property generated="never" lazy="false" name="editableIndicator" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="EDITABLE_INDICATOR" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="editableDetail" optimistic-lock="true" type="clob" unique="false">
+            <column name="EDITABLE_DETAIL"/>
+        </property>
+        <property generated="never" lazy="false" name="clauseText" optimistic-lock="true" type="clob" unique="false">
+            <column name="CLAUSE_TEXT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="modificationDatetime" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="MODIFICATION_DATETIME" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="clsClausePrescriptionses" optimistic-lock="true" sort="unsorted" table="CLS_CLAUSE_PRESCRIPTIONS">
+            <key on-delete="noaction">
+                <column name="CLAUSE_ID" not-null="true" precision="7" scale="0"/>
+            </key>
+            <one-to-many class="ClsClausePrescriptions" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

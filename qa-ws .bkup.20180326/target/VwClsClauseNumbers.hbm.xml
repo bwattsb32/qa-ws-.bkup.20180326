@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="VwClsClauseNumbers" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="VW_CLS_CLAUSE_NUMBERS">
+        <composite-id class="VwClsClauseNumbersId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="clauseId" type="int">
+                <column name="CLAUSE_ID" precision="7" scale="0"/>
+            </key-property>
+            <key-property name="clauseNumber" type="string">
+                <column length="30" name="CLAUSE_NUMBER"/>
+            </key-property>
+            <key-property name="alternateNumber" type="string">
+                <column length="10" name="ALTERNATE_NUMBER"/>
+            </key-property>
+            <key-property name="deviationNumber" type="string">
+                <column length="22" name="DEVIATION_NUMBER"/>
+            </key-property>
+            <key-property name="clauseTitle" type="string">
+                <column length="1000" name="CLAUSE_TITLE"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

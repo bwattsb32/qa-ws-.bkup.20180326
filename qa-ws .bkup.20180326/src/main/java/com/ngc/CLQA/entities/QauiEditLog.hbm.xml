@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 20, 2018 10:08:45 AM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="QauiEditLog" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="QAUI_EDIT_LOG">
+        <id name="dbid" type="big_decimal">
+            <column name="DBID" precision="20" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="QauiDocuments" embed-xml="true" fetch="select" insert="true" name="qauiDocuments" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="DOCUMENT_DBID" not-null="true" precision="20" scale="0"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="userName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="USER_NAME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="editDate" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="EDIT_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="editOrder" optimistic-lock="true" type="long" unique="false">
+            <column name="EDIT_ORDER" not-null="true" precision="10" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="lastEdit" optimistic-lock="true" type="string" unique="false">
+            <column length="1" name="LAST_EDIT" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

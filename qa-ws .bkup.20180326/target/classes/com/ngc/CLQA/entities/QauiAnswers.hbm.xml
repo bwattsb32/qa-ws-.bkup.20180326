@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 20, 2018 10:08:45 AM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="QauiAnswers" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="QAUI_ANSWERS">
+        <id name="answerDbid" type="big_decimal">
+            <column name="ANSWER_DBID" precision="20" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="QauiQuestions" embed-xml="true" fetch="select" insert="true" name="qauiQuestions" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="QUESTION_DBID" not-null="true" precision="20" scale="0"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="answerId" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="ANSWER_ID" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="answerText" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="ANSWER_TEXT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="prescriptions" optimistic-lock="true" type="string" unique="false">
+            <column length="4000" name="PRESCRIPTIONS"/>
+        </property>
+        <property generated="never" lazy="false" name="questionReference" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="QUESTION_REFERENCE"/>
+        </property>
+        <property generated="never" lazy="false" name="nextQuestionId" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="NEXT_QUESTION_ID" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="nextCommqId" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="NEXT_COMMQ_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="selected" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="SELECTED" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="noneOfTheAbove" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="NONE_OF_THE_ABOVE" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="isDisabled" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="IS_DISABLED" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="isDefault" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="IS_DEFAULT" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="answerLevel" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="ANSWER_LEVEL" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="inputType" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="INPUT_TYPE"/>
+        </property>
+        <property generated="never" lazy="false" name="commercialType" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="COMMERCIAL_TYPE"/>
+        </property>
+        <property generated="never" lazy="false" name="prescriptionClob" optimistic-lock="true" type="clob" unique="false">
+            <column name="PRESCRIPTION_CLOB"/>
+        </property>
+        <property generated="never" lazy="false" name="isExclusive" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="IS_EXCLUSIVE" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="conditions" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="CONDITIONS"/>
+        </property>
+        <property generated="never" lazy="false" name="setConditions" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="SET_CONDITIONS"/>
+        </property>
+    </class>
+</hibernate-mapping>

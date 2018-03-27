@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="VwClsPrescriptions" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="VW_CLS_PRESCRIPTIONS">
+        <composite-id class="VwClsPrescriptionsId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="prescriptionNumber" type="string">
+                <column length="30" name="PRESCRIPTION_NUMBER"/>
+            </key-property>
+            <key-property name="prescriptionTitle" type="string">
+                <column length="1000" name="PRESCRIPTION_TITLE"/>
+            </key-property>
+            <key-property name="prescriptionText" type="clob">
+                <column name="PRESCRIPTION_TEXT"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

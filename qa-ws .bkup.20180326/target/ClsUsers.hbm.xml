@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="ClsUsers" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="CLS_USERS">
+        <id name="username" type="string">
+            <column length="128" name="USERNAME"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="org" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="ORG"/>
+        </property>
+        <property generated="never" lazy="false" name="role" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="ROLE"/>
+        </property>
+        <property generated="never" lazy="false" name="permissions" optimistic-lock="true" type="string" unique="false">
+            <column length="64" name="PERMISSIONS"/>
+        </property>
+        <property generated="never" lazy="false" name="lastLogin" optimistic-lock="true" type="serializable" unique="false">
+            <column name="LAST_LOGIN"/>
+        </property>
+    </class>
+</hibernate-mapping>

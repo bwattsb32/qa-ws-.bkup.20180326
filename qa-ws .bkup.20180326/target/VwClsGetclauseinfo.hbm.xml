@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="VwClsGetclauseinfo" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="VW_CLS_GETCLAUSEINFO">
+        <composite-id class="VwClsGetclauseinfoId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="clauseNumber" type="string">
+                <column length="30" name="CLAUSE_NUMBER"/>
+            </key-property>
+            <key-property name="clauseIndicator" type="char">
+                <column length="1" name="CLAUSE_INDICATOR"/>
+            </key-property>
+            <key-property name="alternateStatus" type="string">
+                <column length="10" name="ALTERNATE_STATUS"/>
+            </key-property>
+            <key-property name="deviationStatus" type="string">
+                <column length="22" name="DEVIATION_STATUS"/>
+            </key-property>
+            <key-property name="deviationStartDate" type="string">
+                <column length="7" name="DEVIATION_START_DATE"/>
+            </key-property>
+            <key-property name="deviationEndDate" type="string">
+                <column length="7" name="DEVIATION_END_DATE"/>
+            </key-property>
+            <key-property name="prescription" type="string">
+                <column length="200" name="PRESCRIPTION"/>
+            </key-property>
+            <key-property name="clauseFormat" type="string">
+                <column length="237" name="CLAUSE_FORMAT"/>
+            </key-property>
+            <key-property name="clauseStatus" type="string">
+                <column length="8" name="CLAUSE_STATUS"/>
+            </key-property>
+            <key-property name="clauseTitle" type="string">
+                <column length="1000" name="CLAUSE_TITLE"/>
+            </key-property>
+            <key-property name="clauseEffectiveDate" type="string">
+                <column length="7" name="CLAUSE_EFFECTIVE_DATE"/>
+            </key-property>
+            <key-property name="clauseEffectiveEndDate" type="string">
+                <column length="7" name="CLAUSE_EFFECTIVE_END_DATE"/>
+            </key-property>
+            <key-property name="clauseText" type="clob">
+                <column name="CLAUSE_TEXT"/>
+            </key-property>
+            <key-property name="section" type="java.lang.Character">
+                <column length="1" name="SECTION"/>
+            </key-property>
+            <key-property name="editableIndicator" type="char">
+                <column length="1" name="EDITABLE_INDICATOR"/>
+            </key-property>
+            <key-property name="editableDetail" type="clob">
+                <column name="EDITABLE_DETAIL"/>
+            </key-property>
+            <key-property name="regulatoryEntity" type="string">
+                <column length="510" name="REGULATORY_ENTITY"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

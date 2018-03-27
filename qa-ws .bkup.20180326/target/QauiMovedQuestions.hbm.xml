@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="QauiMovedQuestions" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="QAUI_MOVED_QUESTIONS">
+        <id name="dbid" type="big_decimal">
+            <column name="DBID" precision="20" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="QauiDocuments" embed-xml="true" fetch="select" insert="true" name="qauiDocuments" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="DOCUMENT_DBID" not-null="true" precision="20" scale="0"/>
+        </many-to-one>
+        <many-to-one class="QauiSections" embed-xml="true" fetch="select" insert="true" name="qauiSectionsByDestinationSectionId" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="DESTINATION_SECTION_ID" not-null="true" precision="20" scale="0"/>
+        </many-to-one>
+        <many-to-one class="QauiSections" embed-xml="true" fetch="select" insert="true" name="qauiSectionsBySourceSectionId" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="SOURCE_SECTION_ID" precision="20" scale="0"/>
+        </many-to-one>
+        <many-to-one class="QauiQuestions" embed-xml="true" fetch="select" insert="true" name="qauiQuestions" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="QUESTION_DBID" not-null="true" precision="20" scale="0"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="verified" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="VERIFIED" precision="1" scale="0"/>
+        </property>
+    </class>
+</hibernate-mapping>

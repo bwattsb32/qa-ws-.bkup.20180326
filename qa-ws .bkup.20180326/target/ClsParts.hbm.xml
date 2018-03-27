@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="ClsParts" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="CLS_PARTS">
+        <id name="partId" type="int">
+            <column name="PART_ID" precision="7" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="partNumber" optimistic-lock="true" type="short" unique="false">
+            <column name="PART_NUMBER" not-null="true" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="regulatoryEntity" optimistic-lock="true" type="string" unique="false">
+            <column length="510" name="REGULATORY_ENTITY" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="partTitle" optimistic-lock="true" type="string" unique="false">
+            <column length="510" name="PART_TITLE" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="modificationDatetime" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="MODIFICATION_DATETIME" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="clsClauseses" optimistic-lock="true" sort="unsorted" table="CLS_CLAUSES">
+            <key on-delete="noaction">
+                <column name="PART_ID" not-null="true" precision="7" scale="0"/>
+            </key>
+            <one-to-many class="ClsClauses" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="clsPrescriptionses" optimistic-lock="true" sort="unsorted" table="CLS_PRESCRIPTIONS">
+            <key on-delete="noaction">
+                <column name="PART_ID" not-null="true" precision="7" scale="0"/>
+            </key>
+            <one-to-many class="ClsPrescriptions" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

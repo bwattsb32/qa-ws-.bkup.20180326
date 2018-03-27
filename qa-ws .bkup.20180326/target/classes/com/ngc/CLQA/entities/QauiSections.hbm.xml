@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true" package="com.ngc.CLQA.entities">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="QauiSections" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="QAUI_SECTIONS">
+        <id name="sectionDbid" type="big_decimal">
+            <column name="SECTION_DBID" precision="20" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <!-- 
+        <many-to-one class="QauiDocuments" embed-xml="true" fetch="select" insert="true" name="qauiDocuments" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="DOCUMENT_DBID" not-null="true" precision="20" scale="0"/>
+        </many-to-one>
+ 		-->
+
+        <property generated="never" lazy="false" name="documentDbid" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="DOCUMENT_DBID" not-null="true" precision="20" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="sectionName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="SECTION_NAME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="validated" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="VALIDATED" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="errors" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="ERRORS" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="nonCommercial" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="NON_COMMERCIAL" precision="1" scale="0"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="qauiQuestionses" optimistic-lock="true" sort="unsorted" table="QAUI_QUESTIONS">
+            <key on-delete="noaction">
+                <column name="SECTION_DBID" not-null="true" precision="20" scale="0"/>
+            </key>
+            <one-to-many class="QauiQuestions" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="qauiMovedQuestionsesForDestinationSectionId" optimistic-lock="true" sort="unsorted" table="QAUI_MOVED_QUESTIONS">
+            <key on-delete="noaction">
+                <column name="DESTINATION_SECTION_ID" not-null="true" precision="20" scale="0"/>
+            </key>
+            <one-to-many class="QauiMovedQuestions" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="qauiMovedQuestionsesForSourceSectionId" optimistic-lock="true" sort="unsorted" table="QAUI_MOVED_QUESTIONS">
+            <key on-delete="noaction">
+                <column name="SOURCE_SECTION_ID" precision="20" scale="0"/>
+            </key>
+            <one-to-many class="QauiMovedQuestions" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

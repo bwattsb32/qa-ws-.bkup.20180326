@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="WillTestingProcurementqa" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="WILL_TESTING_PROCUREMENTQA">
+        <id name="dbid" type="big_decimal">
+            <column name="DBID" precision="20" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="sectionName" optimistic-lock="true" type="string" unique="false">
+            <column length="1000" name="SECTION_NAME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="sectionId" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="SECTION_ID" not-null="true" precision="20" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerAId" optimistic-lock="true" type="string" unique="false">
+            <column length="1000" name="QUESTIONANSWER_A_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerQId" optimistic-lock="true" type="string" unique="false">
+            <column length="1000" name="QUESTIONANSWER_Q_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerLevel" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="QUESTIONANSWER_LEVEL"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerQRef" optimistic-lock="true" type="string" unique="false">
+            <column length="1000" name="QUESTIONANSWER_Q_REF"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerMaxselection" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="QUESTIONANSWER_MAXSELECTION" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerMinselection" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="QUESTIONANSWER_MINSELECTION" precision="20" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerQaText" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="QUESTIONANSWER_QA_TEXT"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerPrescription" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="QUESTIONANSWER_PRESCRIPTION"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerNextQId" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="QUESTIONANSWER_NEXT_Q_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerPathvalues" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="QUESTIONANSWER_PATHVALUES"/>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerQaExclusive" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="QUESTIONANSWER_QA_EXCLUSIVE" precision="1" scale="0">
+                <comment>1 = TRUE, 0 = FALSE</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerQaDisable" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="QUESTIONANSWER_QA_DISABLE" precision="1" scale="0">
+                <comment>1 = TRUE, 0 = FALSE</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="questionanswerNextCommQId" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="QUESTIONANSWER_NEXT_COMM_Q_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="documentId" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="DOCUMENT_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="questionAnswerIsCommQ" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="QUESTION_ANSWER_IS_COMM_Q" precision="1" scale="0">
+                <comment>1 = TRUE, 0 = FALSE</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="comments" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="COMMENTS"/>
+        </property>
+        <property generated="never" lazy="false" name="procedures" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="PROCEDURES"/>
+        </property>
+        <property generated="never" lazy="false" name="questionLabel" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="QUESTION_LABEL"/>
+        </property>
+        <property generated="never" lazy="false" name="answerInstructions" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="ANSWER_INSTRUCTIONS"/>
+        </property>
+        <property generated="never" lazy="false" name="inputType" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="INPUT_TYPE"/>
+        </property>
+        <property generated="never" lazy="false" name="questionSequenceType" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="QUESTION_SEQUENCE_TYPE"/>
+        </property>
+        <property generated="never" lazy="false" name="userEnteredInput" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="USER_ENTERED_INPUT"/>
+        </property>
+        <property generated="never" lazy="false" name="commercialType" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="COMMERCIAL_TYPE"/>
+        </property>
+    </class>
+</hibernate-mapping>

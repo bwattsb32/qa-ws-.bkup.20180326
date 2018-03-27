@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="QauiDocuments" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="QAUI_DOCUMENTS">
+        <id name="documentDbid" type="big_decimal">
+            <column name="DOCUMENT_DBID" precision="20" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="documentId" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="DOCUMENT_ID" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="creationDate" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="CREATION_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="lastUpdate" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="LAST_UPDATE"/>
+        </property>
+        <property generated="never" lazy="false" name="apiRequestSchemaVersion" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="API_REQUEST_SCHEMA_VERSION" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="finalized" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="FINALIZED" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="editHistory" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="EDIT_HISTORY"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="qauiEditLogs" optimistic-lock="true" sort="unsorted" table="QAUI_EDIT_LOG">
+            <key on-delete="noaction">
+                <column name="DOCUMENT_DBID" not-null="true" precision="20" scale="0"/>
+            </key>
+            <one-to-many class="QauiEditLog" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="qauiSectionses" optimistic-lock="true" sort="unsorted" table="QAUI_SECTIONS">
+            <key on-delete="noaction">
+                <column name="DOCUMENT_DBID" not-null="true" precision="20" scale="0"/>
+            </key>
+            <one-to-many class="QauiSections" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="qauiMovedQuestionses" optimistic-lock="true" sort="unsorted" table="QAUI_MOVED_QUESTIONS">
+            <key on-delete="noaction">
+                <column name="DOCUMENT_DBID" not-null="true" precision="20" scale="0"/>
+            </key>
+            <one-to-many class="QauiMovedQuestions" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

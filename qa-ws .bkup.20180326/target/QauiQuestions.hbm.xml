@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="QauiQuestions" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="QAUI_QUESTIONS">
+        <id name="questionDbid" type="big_decimal">
+            <column name="QUESTION_DBID" precision="20" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="QauiSections" embed-xml="true" fetch="select" insert="true" name="qauiSections" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="SECTION_DBID" not-null="true" precision="20" scale="0"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="questionId" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="QUESTION_ID" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="questionText" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="QUESTION_TEXT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="answerInstructions" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="ANSWER_INSTRUCTIONS"/>
+        </property>
+        <property generated="never" lazy="false" name="additionalInstructions" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="ADDITIONAL_INSTRUCTIONS"/>
+        </property>
+        <property generated="never" lazy="false" name="nonCommercial" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="NON_COMMERCIAL" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="questionLabel" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="QUESTION_LABEL"/>
+        </property>
+        <property generated="never" lazy="false" name="minimumSelections" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="MINIMUM_SELECTIONS" precision="20" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="maximumSelections" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="MAXIMUM_SELECTIONS" precision="20" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="containsNoneOfTheAbove" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="CONTAINS_NONE_OF_THE_ABOVE" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="questionSequenceType" optimistic-lock="true" type="blob" unique="false">
+            <column name="QUESTION_SEQUENCE_TYPE"/>
+        </property>
+        <property generated="never" lazy="false" name="defaultNextQuestionId" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="DEFAULT_NEXT_QUESTION_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="conditions" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="CONDITIONS"/>
+        </property>
+        <property generated="never" lazy="false" name="isDisabled" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="IS_DISABLED" precision="1" scale="0"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="qauiMovedQuestionses" optimistic-lock="true" sort="unsorted" table="QAUI_MOVED_QUESTIONS">
+            <key on-delete="noaction">
+                <column name="QUESTION_DBID" not-null="true" precision="20" scale="0"/>
+            </key>
+            <one-to-many class="QauiMovedQuestions" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="qauiAnswerses" optimistic-lock="true" sort="unsorted" table="QAUI_ANSWERS">
+            <key on-delete="noaction">
+                <column name="QUESTION_DBID" not-null="true" precision="20" scale="0"/>
+            </key>
+            <one-to-many class="QauiAnswers" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

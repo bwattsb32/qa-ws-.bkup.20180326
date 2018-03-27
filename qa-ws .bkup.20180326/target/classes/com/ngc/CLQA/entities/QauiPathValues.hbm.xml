@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 20, 2018 10:08:45 AM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="QauiPathValues" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="QAUI_PATH_VALUES">
+        <id name="dbid" type="big_decimal">
+            <column name="DBID" precision="20" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="answerReference" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="ANSWER_REFERENCE" not-null="true" precision="20" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="path" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="PATH"/>
+        </property>
+        <property generated="never" lazy="false" name="value" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="VALUE"/>
+        </property>
+    </class>
+</hibernate-mapping>

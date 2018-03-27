@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="ClsPrescriptions" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="CLS_PRESCRIPTIONS">
+        <id name="prescriptionId" type="int">
+            <column name="PRESCRIPTION_ID" precision="7" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="ClsParts" embed-xml="true" fetch="select" insert="true" name="clsParts" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="PART_ID" not-null="true" precision="7" scale="0"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="prescriptionNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="PRESCRIPTION_NUMBER" not-null="true" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="prescriptionTitle" optimistic-lock="true" type="string" unique="false">
+            <column length="1000" name="PRESCRIPTION_TITLE" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="effectiveDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="EFFECTIVE_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="effectiveEndDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="EFFECTIVE_END_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="prescriptionText" optimistic-lock="true" type="clob" unique="false">
+            <column name="PRESCRIPTION_TEXT"/>
+        </property>
+        <property generated="never" lazy="false" name="modificationDatetime" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="MODIFICATION_DATETIME" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="clsClausePrescriptionses" optimistic-lock="true" sort="unsorted" table="CLS_CLAUSE_PRESCRIPTIONS">
+            <key on-delete="noaction">
+                <column name="PRESCRIPTION_ID" not-null="true" precision="7" scale="0"/>
+            </key>
+            <one-to-many class="ClsClausePrescriptions" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

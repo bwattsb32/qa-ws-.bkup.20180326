@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 20, 2018 10:08:45 AM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="QauiConditions" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="QAUI_CONDITIONS">
+        <composite-id class="QauiConditionsId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="conditionDbid" type="string">
+                <column length="50" name="CONDITION_DBID"/>
+            </key-property>
+            <key-property name="conditionText" type="string">
+                <column length="2000" name="CONDITION_TEXT"/>
+            </key-property>
+            <key-property name="documentId" type="string">
+                <column length="50" name="DOCUMENT_ID"/>
+            </key-property>
+            <key-property name="isAnswerOrQuestion" type="string">
+                <column length="1" name="IS_ANSWER_OR_QUESTION"/>
+            </key-property>
+            <key-property name="referenceDbid" type="string">
+                <column length="50" name="REFERENCE_DBID"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 21, 2018 3:33:44 PM by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="ClsClausePrescriptions" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="CLS_CLAUSE_PRESCRIPTIONS">
+        <id name="clausePrescriptionId" type="int">
+            <column name="CLAUSE_PRESCRIPTION_ID" precision="7" scale="0"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="ClsPrescriptions" embed-xml="true" fetch="select" insert="true" name="clsPrescriptions" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="PRESCRIPTION_ID" not-null="true" precision="7" scale="0"/>
+        </many-to-one>
+        <many-to-one class="ClsClauses" embed-xml="true" fetch="select" insert="true" name="clsClauses" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="CLAUSE_ID" not-null="true" precision="7" scale="0"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="clausePrescriptionCode" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CLAUSE_PRESCRIPTION_CODE" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="modificationDatetime" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="MODIFICATION_DATETIME" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
